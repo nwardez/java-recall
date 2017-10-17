@@ -67,13 +67,20 @@ public class PlayingWithAlgo {
 
 	public static String[] reverseWordsInMyStringArray(String array[]) {
 		
-		ArrayList<String> result = new ArrayList<>();
-		
 		return null;
 	}
 
-	public static String[] reverseOrderInArray(String array[]) {
-		return null;
+	public static String[] reverseOrderInArray(String array[]) { //__________________________________________________________________OK
+		
+		String[] result = new String[array.length];
+		//convertir le tableau en une List
+	      List<Object> list = Arrays.asList(array);
+	      //inverser les objets du tableau
+	      Collections.reverse(list);
+	      //obtenir le tableau à partir de la liste
+	      result = (String[]) list.toArray();
+		
+		return result;
 	}
 
 	public static String[][] everyPossiblePair(String array[]) {
@@ -81,7 +88,16 @@ public class PlayingWithAlgo {
 	}
 
 	public static List<String> sortByLastLetter(String array[]) {
-		return null;
+		
+		ArrayList<String> result = new ArrayList<String>();
+		
+		for (int i = 0; i < array.length - 1; i ++) {
+		StringBuilder lettersBuff = new StringBuilder(array[i]);
+		String str_inverse = lettersBuff.reverse().toString();
+		result.add(str_inverse);
+		}
+		
+		return result;
 	}
 
 	public static String getFirstHalf(String string) {  // ______________________________________________________________________________OK
@@ -98,7 +114,10 @@ public class PlayingWithAlgo {
 	}
 
 	public static String exportWordWithoutALetter(String array[], char letter) {
-		return null;
+		
+		String result = "";
+		
+		return result;
 	}
 
 	public static int numberOfPalindromeWord(String text) {
@@ -236,8 +255,13 @@ public class PlayingWithAlgo {
 		return result;
 	}
 
-	public static long addingSeveralNumbers(final long... numbers) {
-		return 0;
+	public static long addingSeveralNumbers(final long... numbers) {//______________________________________________OK
+		
+		long result=0;
+		for (long arg:numbers) { //Les paramètres passés dynamiquement sont rentrés dans un tableau
+			result = result + arg;
+		}
+		return result;
 	}
 
 	public static int[] allElementsExceptFirstThree(int array[]) { //______________________________________________________________OK
@@ -274,6 +298,7 @@ public class PlayingWithAlgo {
 	}
 
 	public static String[] getElementsLowerThanSix(String[] array) {
+		
 		return null;
 	}
 	
@@ -312,9 +337,13 @@ public class PlayingWithAlgo {
 	
 	}
 
-	public static int convertToCelsius(int temperature) { //_______________________ A REFAIRE
+	public static int convertToCelsius(int temperature) { //_______________________________________________________________OK
 		
-		return 0;
+		int result = 0;
+		
+		result = (int)(Math.round((temperature  - 32) / 1.8));
+		
+		return result;
 		
 	
 	}
@@ -450,7 +479,7 @@ public class PlayingWithAlgo {
 		return result;
 	}
 	
-	public static int[] allElementsExceptFirstAndLastInt(int array[]) {//__________________________________________COMPRENDS PAS POURQUOI CA MARCHE PAS
+	public static int[] allElementsExceptFirstAndLastInt(int array[]) {//_________________________________________________________________OK
 		int[] monTab=new int[array.length-2];
 		for ( int i = 0 ; i < monTab.length ; i++) {
 			monTab[i]=array[i+1];
