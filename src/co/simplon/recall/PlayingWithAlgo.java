@@ -66,6 +66,9 @@ public class PlayingWithAlgo {
 	}
 
 	public static String[] reverseWordsInMyStringArray(String array[]) {
+		
+		ArrayList<String> result = new ArrayList<>();
+		
 		return null;
 	}
 
@@ -81,9 +84,15 @@ public class PlayingWithAlgo {
 		return null;
 	}
 
-	public static String getFirstHalf(String string) {  // ------------------------------------------A REFAIRE
+	public static String getFirstHalf(String string) {  // ______________________________________________________________________________OK
 		
-		String	result=string.substring(0, Math.round((string.length()-1)/2));
+		String result = "";
+		
+		if (string.length() % 2 == 0) { // Vérifier si la longueur chaine de caractere est paire ou impaire
+			result=string.substring(0, Math.round((string.length() )/2 ));
+		} else {
+			result=string.substring(0, Math.round((string.length() )/2 + 1));
+		}
 		
 		return result;
 	}
@@ -121,10 +130,12 @@ public class PlayingWithAlgo {
 
 	public static String longestWord(String text) { //-----------------------SPLIT IMBRIQUE A REVOIR--------------------------------
 		
-String result = "";
+		String result = "";
+		
+		//text.replaceAll("{,.}", "");
 		
 		// Transforme le texte en tableaux de chaine avec SPLIT =  ESPACE
-		String monTab[] = text.split(" ");
+		String monTab[] = text.split("[ ,.]+");
 		
 		int nombreDeLettre = monTab[0].length();
 		result = monTab[0];
@@ -142,12 +153,34 @@ String result = "";
 		return null;
 	}
 	
-	public static String removeCapitals(String text) {
-		return null;
+	public static String removeCapitals(String text) { //_____________________________________________________________OK
+		String result= "";
+		
+		for (int i = 0; i < text.length(); i ++) {
+			if ( text.charAt(i) < 65 || text.charAt(i) > 90 ) {
+				result = result + text.charAt(i);
+			}
+		}
+		return result;
 	}
 	
-	public static String formatDateNicely(String text) {
-		return null;
+	public static String formatDateNicely(String text) { //___________________________________________________________________________OK
+		
+		String result = "";
+		
+		// On enlève les tirets et on met met les differentes sous chaines dans un tableau
+		String resultTemp[] = text.split("-"); 
+		
+		for (int i = 2; i >=0; i--) {
+			if (i != 0) {
+				result = result + resultTemp[i] + "/";
+			} else {
+				result = result + resultTemp[i];
+			}
+		}
+		
+		
+		return result;
 	}
 	
 	public static String getDomainName(String email) { //_______________________________________________________________OK
@@ -156,23 +189,41 @@ String result = "";
 		
 		result= email.substring(6, email.length() - 4);
 		
-		return result; // A refaire quand même avec TypeOf
+		return result; // A refaire quand même avec REGEX
 	}
 
-	public static String titleize(String title) {
-		return null;
+	public static String titleize(String title) { //________________________________comprends pas ce qu'il faut retourner?????????
+		
+		String result = "";
+		result=title.toLowerCase();
+		return result;
 	}
 	
 	public static boolean checkForSpecialCharacters(String string) {
-		return false;
+		// 48 à 57+++ 65 à 90 +++ 97 à 122
+		boolean result = true;
+		for ( int i =0; i< string.length()-1; i ++) {
+			//if (string.charAt(i) < 48 )
+		}
+		return result;
 	}
 	
 	public static String[] findAnagrams(String name) {
 		return null;
 	}
 
-	public static int[] letterPosition(String name) {
-		return null;
+	public static int[] letterPosition(String name) { //___________________________________________________________________OK
+		
+		// Met toute la chaine en minuscule
+		name = name.toLowerCase(); 
+		// Initialise le tableau de sortie en fonction de la longueur de la chaine
+		int[] result = new int[name.length()];
+		// Affecte les valeurs en sachant que CHAR A = 97 jusqu'à CHAR Z=122
+		for (int i = 0; i < name.length(); i ++) {
+			result[i] = name.charAt(i) - 96;
+		}
+		
+		return result;
 	}
 	
 	public static long addingTwoNumbers(long number1, long number2) {//__________________________________________OK
@@ -424,9 +475,9 @@ String result = "";
 	
 	public static ArrayList<Integer> reverseOrder(int array[]) {
 		
-		ArrayList<Integer> result = new ArrayList<Integer>();
 		
-		return result;
+		
+		return null;
 	}
 	
 	public static int[] reverseOrderInt(int array[]) {
@@ -480,7 +531,7 @@ String result = "";
 		int result = 0;
 		
 		for ( int i = 0; i < addition.size(); i ++) {
-			result = result;
+			//result = result;
 		}
 		
 		return result;
